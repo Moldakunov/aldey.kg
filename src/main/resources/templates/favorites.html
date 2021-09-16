@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <!--link(href="favicon.png" rel="icon" )-->
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title th:text="${title}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/Linearicons/Linearicons/Font/demo-files/demo.css">
+    <link rel="stylesheet" href="plugins/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="plugins/slick/slick/slick.css">
+    <link rel="stylesheet" href="plugins/lightGallery-master/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/market-place-1.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/electronic.css">
+
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-page--my-account">
+    <div class="ps-breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/index">Главная</a></li>
+                <li><a href="/account">Личный кабинет</a></li>
+                <li>Мои избранные товары</li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <section class="ps-section--account">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="ps-section__left">
+                        <aside class="ps-widget--account-dashboard">
+                            <div class="ps-widget__header">
+                                <figure>
+                                    <h3>Привет</h3>
+                                    <h3 th:text="${userName}">Имя</h3>
+                                    <strong>Ваш ID: [[${id}]]</strong><br>
+
+                                </figure>
+                            </div>
+                            <br>
+                            <div class="ps-widget__content">
+                                <ul>
+                                    <li class="active">
+                                        <a href="/account" style="font-size: large"><i class="icon-user"></i>Личные настройки</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/orders" style="font-size: large"><i class="icon-papers"></i>Покупки</a>
+                                    </li>
+                                    <li>
+                                        <a href="/favorites" style="font-size: large"><i class="icon-heart"></i>Избранные товары</a>
+                                    </li>
+                                    <li>
+                                        <a href="/" style="font-size: large" id="signOutButton"><i class="icon-power-switch"></i>Выйти</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>                    </div>
+                <div class="col-lg-8">
+                    <div class="ps-section__right">
+                        <div class="ps-block--vendor-dashboard">
+                            <div class="ps-block__header">
+                                <h3>Мои избранные товары</h3>
+                            </div>
+                            <div class="ps-block__content">
+                                <div class="table-responsive">
+                                    <table class="table ps-table ps-table--vendor">
+                                        <thead>
+                                        <tr>
+                                            <th>Фото</th>
+                                            <th>Название</th>
+                                            <th>Цена</th>
+                                            <th>Статус</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="favorites : ${favorites}">
+                                            <td>
+                                                <a th:href="'/product/' + ${favorites.seoUrl}">
+                                                    <img th:src="${!favorites.imageUrl.empty} ? ${favorites.imageUrl} : @{/img/1.jpg}">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a th:href="'/product/' + ${favorites.seoUrl}" th:text="${favorites.nameShort}">Название товара</a>
+                                            </td>
+                                            <td>[[${#strings.substring(favorites.price, 0, #strings.length(favorites.price)-2)}]]</td>
+                                            <td><a th:class="${favorites.qty == 0} ? 'ps-tag--out-stock' : 'ps-tag--in-stock'"
+                                                   th:text="${favorites.qty == 0} ? ' Нет ' : ' Есть'">
+                                                <strong>Статус</strong></a></td>
+                                            <td><a id="multiplyButton" class="ps-btn product__action" th:data-productid="${favorites.id}" style="color: white"><i class="icon-bag2"></i> </a> </td>
+                                            <td><a href="#" id="removeProductFromFavorite" class="remove-product-from-wish_list" th:attr="data-product_id_favorite=${favorites.id}"><i class="icon-cross"></i> </a> </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<br><br>
+<div th:insert="footer :: footer"></div>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="plugins/imagesloaded.pkgd.js"></script>
+<script src="plugins/masonry.pkgd.min.js"></script>
+<script src="plugins/isotope.pkgd.min.js"></script>
+<script src="plugins/jquery.matchHeight-min.js"></script>
+<script src="plugins/slick/slick/slick.min.js"></script>
+<script src="plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="plugins/slick-animation.min.js"></script>
+<script src="plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="plugins/jquery.slimscroll.min.js"></script>
+<script src="plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="js/main.js"></script>
+
+
+</body>
+</html>

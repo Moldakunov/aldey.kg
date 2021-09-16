@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="" name="author">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <title th:text="${title}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext}">
+    <link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/fonts/Linearicons/Linearicons/Font/demo-files/demo.css}">
+    <link rel="stylesheet" th:href="@{/plugins/bootstrap4/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/plugins/owl-carousel/assets/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/plugins/slick/slick/slick.css}">
+    <link rel="stylesheet" th:href="@{/plugins/lightGallery-master/dist/css/lightgallery.min.css}">
+    <link rel="stylesheet" th:href="@{/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css}">
+    <link rel="stylesheet" th:href="@{/plugins/jquery-ui/jquery-ui.min.css}">
+    <link rel="stylesheet" th:href="@{/plugins/select2/dist/css/select2.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.min.css}">
+
+</head>
+
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-page--404">
+    <div class="container">
+        <div class="ps-section__content"><img alt="" th:src="@{/img/404.jpg}">
+            <h3>УПС! Страница не найдена</h3>
+            <p><a href="/sign-in">Войти в аккаунт</a></p>
+            <p>или</p>
+            <p>Перейти на <a href="/index"> главную страницу</a></p>
+        </div>
+    </div>
+</div>
+
+<footer class="ps-footer">
+    <div th:replace="footer :: footer"></div>
+</footer>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.min.js"></script>
+
+</body>
+</html>

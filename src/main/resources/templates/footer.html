@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+
+<footer class="ps-footer ps-footer--3" >
+    <div class="ps-container">
+
+        <div class="ps-block--site-features ps-block--site-features-2">
+
+            <div class="ps-block__item">
+                <div class="ps-block__left"><a href="https://api.whatsapp.com/send?phone=996776495312"><i class="icon-phone"></i></a></div>
+                <div class="ps-block__right">
+                    <a href="https://api.whatsapp.com/send?phone=996776495312"><h4>Тел.: 0776 49 53 12</h4></a>
+                    <a href="https://api.whatsapp.com/send?phone=996776495312"><p>Также есть WhatsApp</p></a>
+                </div>
+            </div>
+            <div class="ps-block__item">
+                <div class="ps-block__left"><a href="https://api.whatsapp.com/send?phone=996776495312"><i class="icon-bubbles"></i></a></div>
+                <div class="ps-block__right">
+                    <a href="https://api.whatsapp.com/send?phone=996776495312"><h4>Есть вопросы?</h4></a>
+                    <a href="https://api.whatsapp.com/send?phone=996776495312"><p>Напишите нам WhatsApp</p></a>
+                </div>
+            </div>
+            <div class="ps-block__item">
+                <div class="ps-block__left"><i class="icon-timer"></i></div>
+                <div class="ps-block__right">
+                    <h4>Режим работы</h4>
+                    <p>С 10:00 до 20:00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ps-footer__widgets">
+            <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+            <aside class="widget widget_footer widget_contact-us">
+                <h4 class="widget-title">Наши контакты:</h4>
+                <div class="widget_content">
+                    <h3> 0776 49 53 12 (WhatsApp)</h3>
+                    <br>
+                    <a href="https://go.2gis.com/cegnbi" target="_blank"><p><i class="fa fa-map-marker"></i> г. Бишкек, ул. Калык Акиева 66, ТАЦ "Весна", 3-этаж, 24-бутик<br></p></a>
+                    <a href="https://api.whatsapp.com/send?phone=996776495312"><p><i class="fa fa-phone"></i> 0776 49 53 12 (WhatsApp)</p></a>
+                    <br>
+                    <a href="https://go.2gis.com/k7069x" target="_blank"><p><i class="fa fa-map-marker"></i> г. Бишкек, ул. Жукеева Пудовкина 146<br></p></a>
+                    <a href="https://api.whatsapp.com/send?phone=996776495312"><p><i class="fa fa-phone"></i> 0776 49 53 12 (WhatsApp)</p></a>
+                    <br>
+                    <a href="https://go.2gis.com/cjus3" target="_blank"><p><i class="fa fa-map-marker"></i> г. Ош, ул. Курманжан Датка 213А/1<br></p></a>
+                    <a href="https://api.whatsapp.com/send?phone=996776374285"><p><i class="fa fa-phone"></i> 0776 37 42 85 (WhatsApp)</p></a>
+                    <br>
+                    <p><i class="fa fa-map-marker"></i> г. Джалал-абад, ТЦ "Plaza", 3-этаж, 13-бутик<br></p>
+                    <a href="https://api.whatsapp.com/send?phone=996702495312"><p><i class="fa fa-phone"></i> 0702 49 53 12 (WhatsApp)</p></a>
+                </div>
+            </aside>
+            <aside class="widget widget_footer">
+                <h4 class="widget-title">Компания</h4>
+                <ul class="ps-list--link">
+                    <li><a href="/index"><i class="fa fa-check-circle fa-1x"></i> Главная</a></li>
+                    <li><a href="/contact-us"><i class="fa fa-check-circle fa-1x"></i> Контакты</a></li>
+                    <li><a href="/delivery"><i class="fa fa-check-circle fa-1x"></i> Доставка</a></li>
+                </ul>
+            </aside>
+            <aside class="widget widget_footer">
+                <h4 class="widget-title">Мы в других местах</h4>
+                <ul class="ps-list--link">
+                    <a href="https://www.instagram.com/aldey_aldey/" target="_blank"><li><i class="fa fa-instagram fa-1x"></i> Instagram Бишкек</li></a>
+                    <a href="https://www.instagram.com/aldey_aldey_osh/" target="_blank"><li><i class="fa fa-instagram fa-1x"></i> Instagram Ош</li></a>
+                    <a href="https://www.instagram.com/aldey_aldey_jalalabad/" target="_blank"><li><i class="fa fa-instagram fa-1x"></i> Instagram Жалал Абад</li></a>
+                    <a href="https://api.whatsapp.com/send?phone=996776495312" target="_blank"><li><i class="fa fa-phone-square fa-1x"></i> WhatsApp Бишкек</li></a>
+                    <a href="https://api.whatsapp.com/send?phone=996776374285" target="_blank"><li><i class="fa fa-phone-square fa-1x"></i> WhatsApp Ош</li></a>
+                    <a href="https://api.whatsapp.com/send?phone=996702495312" target="_blank"><li><i class="fa fa-phone-square fa-1x"></i> WhatsApp Жалал Абад</li></a>
+                    <li><a href="#"></a></li>
+                </ul>
+            </aside>
+            <aside class="widget widget_footer">
+                <h4 class="widget-title"></h4>
+                <ul class="ps-list--link">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </aside>
+        </div>
+
+
+        <div class="ps-footer__links">
+            <p th:each="category : ${categoryName}">
+                <a th:href="'/category/' + ${category.translit}"><strong th:text="${category.name}" >Категории</strong></a>
+                <a th:href="'/category/' + ${category.translit} + '/' + ${subCategory.translit}" th:each="subCategory : ${category.subCategory}" th:text="${subCategory.name}">Air Conditioners</a>
+            </p>
+        </div>
+
+        <div class="ps-footer__copyright">
+            <p>© 2019-2021 aldey_aldey. Все права защищены.</p>
+            <span style=".stores-logo-img{max-width:150px;-webkit-animation:stores-logo-rotate 8s linear infinite;
+            animation:stores-logo-rotate 8s linear infinite}.stores-logo a .stores-logo-img{max-width:150px;
+            -webkit-animation:stores-logo-rotate 10s linear infinite;animation:stores-logo-rotate 10s linear infinite}.stores-logo a
+            .stores-text{font-weight:600}.pignose-calendar{width:unset;background-color:#000;box-shadow:0 0 150px 0 rgba(11,61,145,.22);
+            border:none}.pignose-calendar.pignose-calendar-blue" class="stores-logo">
+                <a target="_blank" href="https://www.stores.kg">
+                    <span class="left">With
+                        <i class="fa fa-heart"></i> by
+                    </span>
+                    <img class="stores-logo-img" src="/img/stores.png" alt="">
+                </a>
+            </span>
+
+        </div>
+    </div>
+</footer>
+</body>
+</html>

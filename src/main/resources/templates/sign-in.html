@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+  <!--link(href="favicon.png" rel="icon" )-->
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title th:text="${title}">Title</title>
+  <link href="/img/favicon.ico" rel="icon">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext"
+        rel="stylesheet">
+  <link rel="stylesheet" th:href="@{plugins/font-awesome/css/font-awesome.min.css}">
+  <link rel="stylesheet" th:href="@{fonts/Linearicons/Linearicons/Font/demo-files/demo.css}">
+  <link rel="stylesheet" th:href="@{plugins/bootstrap4/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{plugins/owl-carousel/assets/owl.carousel.css}">
+  <link rel="stylesheet" th:href="@{plugins/slick/slick/slick.css}">
+  <link rel="stylesheet" th:href="@{plugins/lightGallery-master/dist/css/lightgallery.min.css}">
+  <link rel="stylesheet" th:href="@{plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css}">
+  <link rel="stylesheet" th:href="@{plugins/jquery-ui/jquery-ui.min.css}">
+  <link rel="stylesheet" th:href="@{plugins/select2/dist/css/select2.min.css}">
+  <link rel="stylesheet" th:href="@{css/style.min.css}">
+
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+  <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+  <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+  <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-page--my-account">
+  <div class="ps-breadcrumb">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li><a href="/index">Главная</a></li>
+        <li>Вход в аккаунт</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ps-my-account">
+    <div class="container">
+      <form class="ps-form--account ps-tab-root" id="signinFormId">
+        <ul class="ps-tab-list">
+          <li class="active"><a>Войти</a></li>
+          <!--<li><a href="/register">Регистрация</a></li>-->
+        </ul>
+        <div class="ps-tabs">
+          <div class="ps-tab active">
+            <div class="ps-form__content">
+              <h5>Войти в личный кабинет</h5>
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Введите имя пользователя или E-Mail"
+                id="emailSignin" onkeyup="successSigninButton()">
+              </div>
+              <div class="form-group form-forgot">
+                <input class="form-control" type="password" placeholder="Введите пароль"
+                id="passwordSignin" onkeyup="successSigninButton()"><a href="/forgotPassword">Забыли?</a>
+              </div>
+              <!--<div class="form-group">
+                <div class="ps-checkbox">
+                  <input class="form-control" type="checkbox" id="remember-me" name="remember-me"/>
+                  <label for="remember-me">Запомнить</label>
+                </div>
+              </div>-->
+              <div class="form-group submit">
+                <button disabled class="ps-btn ps-btn--fullwidth" id="signinButton">Войти</button>
+              </div>
+            </div>
+            <!--<div class="ps-form__footer">
+              <p>Войти с помощью:</p>
+              <ul class="ps-list&#45;&#45;social">
+
+                <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+
+              </ul>
+            </div>-->
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal когда логин или пароль неправильный-->
+<div id="myModalSigninError" class="modal">
+  <div class="modal-content">
+    <div class="modal-header" style="background-color: #cc0000">
+      <span class="closeFailed">&times;</span>
+    </div>
+    <div class="modal-body">
+      <h2>Логин или пароль неправильный</h2>
+      <h2>Попробуйте ввести заново</h2>
+    </div>
+    <div class="modal-footer" style="background-color: #cc0000">
+    </div>
+  </div>
+</div>
+
+<div th:insert="footer :: footer"></div>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.js"></script>
+</body>
+</html>

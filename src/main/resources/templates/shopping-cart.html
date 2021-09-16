@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <meta content="" name="author">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <title th:text="${title}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext"
+          rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="fonts/Linearicons/Linearicons/Font/demo-files/demo.css" rel="stylesheet">
+    <link href="plugins/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+    <link href="plugins/slick/slick/slick.css" rel="stylesheet">
+    <link href="plugins/lightGallery-master/dist/css/lightgallery.min.css" rel="stylesheet">
+    <link href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css" rel="stylesheet">
+    <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="plugins/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <script type='text/javascript'>
+
+    (function()
+    {
+      if( window.localStorage )
+      {
+        if( !localStorage.getItem('firstLoad') )
+        {
+          localStorage['firstLoad'] = true;
+          window.location.reload();
+        }
+        else
+          localStorage.removeItem('firstLoad');
+      }
+    })();
+
+    </script>
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-page--simple">
+    <div class="ps-breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/index">Главная</a></li>
+                <li>Корзина</li>
+            </ul>
+        </div>
+    </div>
+    <div class="ps-section--shopping ps-shopping-cart">
+        <div class="container">
+            <div class="ps-section__header">
+                <h1>Список выбранных товаров</h1>
+            </div>
+            <div class="ps-section__content">
+                <div class="table-responsive">
+                    <table class="table ps-table--shopping-cart">
+                        <thead>
+                        <tr>
+                            <th>Наименование товара</th>
+                            <th>Цена</th>
+                            <th>Статус</th>
+                            <th>Количество</th>
+                            <th>Итого</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="product-cart-row" th:data-productid="${product.id}"
+                            th:each="product, iter : ${products}"
+                            th:if="${not #lists.isEmpty(products)}">
+                            <td>
+                                <div class="ps-product--cart">
+                                    <div class="ps-product__thumbnail">
+                                        <a th:href="'/product/' + ${product.seoUrl}">
+                                            <img alt=""
+                                                 th:src="${!product.imageUrl.empty} ? ${product.imageUrl} : @{/img/no-photo-small.jpg}">
+                                        </a>
+                                    </div>
+                                    <div class="ps-product__content">
+                                        <a th:href="'/product/' + ${product.seoUrl}" th:text="${product.nameShort}">Наименование
+                                            товара</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="price" th:id="'priceForOneProduct' + ${iter.count}"
+                                th:text="${product.status} != -1 AND ${product.status} != -3
+                                ? ${#strings.substring(product.price, 0, #strings.length(product.price)-2)} + ' сом'
+                                : ${#strings.substring(product.discountPrice, 0, #strings.length(product.discountPrice)-2)} + ' сом'">
+                                Цена
+                            </td>
+                            <td>В наличии</td>
+                            <td>
+                                <div class="form-group--number">
+                                    <button class="up" type="button">+</button>
+                                    <button class="down" type="button">-</button>
+                                    <input class="form-control countOfProduct" id="countOfProduct" type="text"
+                                           value="1">
+                                </div>
+                            </td>
+                            <td>
+                                <span class="product-total-price"
+                                      th:text="${product.status} != -1 AND ${product.status} != -3 ? ${product.price} : ${product.discountPrice}"></span>
+                                сом
+                                <input class="product-price" th:value="${product.status} != -1 AND ${product.status} != -3 ? ${product.price} : ${product.discountPrice}"
+                                       type="hidden">
+                                <input class="product-id" th:value="${product.id}"
+                                       type="hidden">
+                            </td>
+                            <td><a class="remove-product-from-cart" href="#"><i class="icon-cross"></i></a></td>
+                        </tr>
+                        <tr class="product-cart-row" th:if="${#lists.isEmpty(products)}">
+                            <td colspan="6" style="text-align: center !important;">
+                                <h4 class="text-danger">Корзина пуста</h4>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ps-section__cart-actions"></div>
+            </div>
+            <div class="ps-section__footer" th:if="${not #lists.isEmpty(products)}">
+                <div class="row">
+
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                        <figure>
+                            <h3 style="color: coral">Ваши данные</h3>
+                            <div class="form-group">
+                                <label style="color: red"> * </label><label>Номер телефона (обязательно укажите номер)</label>
+                                <input class="form-control" id="phoneNumberClient" placeholder="Номер телефона" required
+                                       type="tel">
+                                <small>Пример: 0700 123 456</small>
+                            </div>
+                            <div class="form-group">
+                                <label> Ваше имя</label>
+                                <input class="form-control" id="nickNameClient" placeholder="Ваше имя"
+                                       type="text">
+                            </div>
+                            <div class="form-group">
+                                <label> Ваш адрес</label>
+                                <input class="form-control" id="addressClient" placeholder="Ваш адрес"
+                                       type="text">
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                        <div class="ps-block--shopping-total">
+                            <div class="ps-block__header">
+                                <h3> Итого
+                                    <span id="cart-subtotal"></span>
+                                </h3>
+                            </div>
+                            <div class="ps-block__header">
+                                <p> Стоимость доставки
+                                    <span>
+                                        <a href="/delivery" target="_blank">здесь</a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="myModalBuy" role="dialog"
+                             tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="border: #0D0A0A; background: #e31837">
+                                        <h4 class="modal-title" id="myModalLabel" style="color: #FFFFFF">Заполните поле "Номер"</h4>
+                                        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
+                                            &times;
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="ps-btn ps-btn--fullwidth ps-btn--buy" data-target="#myModalBuy" data-toggle="modal" href="#"
+                                id="buttonBuy" type="submit">Заказать
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="footer :: footer"></div>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.min.js"></script>
+</body>
+</html>

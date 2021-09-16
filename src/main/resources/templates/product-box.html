@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div class="head" th:replace="head :: head"></div>
+
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-breadcrumb">
+    <div class="ps-container">
+        <ul class="breadcrumb">
+            <li>
+                <a href="/index">Главная</a>
+            </li>
+            <li th:if="${category != null}">
+                <a th:href="'/category/'+${category}" th:text="${categoryNoTranslitName}">Категория</a>
+                /
+                <a th:href="'/category/'+${category}+'/'+${subCategory}" th:text="${subCategoryNoTranslitName}">Подкатегория</a>
+            </li>
+            <li>
+                [[${product.name}]]
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="ps-page--product ps-page--product-box">
+    <div class="container">
+        <div class="ps-product--detail ps-product--box">
+            <div class="ps-product__header ps-product__box">
+                <div class="ps-product__thumbnail" data-vertical="true">
+                    <figure>
+                        <div class="ps-wrapper">
+                            <div class="ps-product__gallery" data-arrow="true" th:if="${not #lists.isEmpty(images)}">
+                                <div class="item" th:each="image : ${images}">
+                                    <a th:href="${image}">
+                                        <img alt="" th:src="${image}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="ps-product__gallery" data-arrow="true" th:if="${#lists.isEmpty(images)}">
+                                <div class="item">
+                                    <a th:href="@{/img/no-photo-small.jpg}">
+                                        <img alt="" th:src="@{/img/no-photo-small.jpg}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="ps-product__variants" data-item="4" data-md="4" data-sm="4" data-arrow="false"
+                         th:if="${not #lists.isEmpty(images)}">
+                        <div class="item" th:each="image : ${images}">
+                            <img alt="" th:src="${image}">
+                        </div>
+                    </div>
+                    <div class="ps-product__variants" data-item="4" data-md="4" data-sm="4" data-arrow="false"
+                         th:if="${#lists.isEmpty(images)}">
+                        <div class="item">
+                            <img alt="" th:src="@{/img/no-photo-small.jpg}">
+                        </div>
+                    </div>
+                </div>
+                <div class="ps-product__info">
+                    <h1 th:text="${product.name}">Название товара</h1>
+                    <div class="ps-product__meta">
+                        <div class="ps-product__rating" th:if="${product.rating} > 0">
+                            <label>
+                                <select class="ps-rating" data-read-only="true">
+                                    <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i <= product.rating} ? 1 : 2"></option>
+                                </select>
+                            </label>
+                            <span th:text="'(' + ${reviewsCount} + ') отзывов'">отзывы</span>
+                        </div>
+                    </div>
+                    <h4 class="ps-product__price" th:if="${product.status} != -1 AND ${product.status} != -3">
+                        <p class="ps-product__price sale"
+                           th:text="${#strings.substring(product.price, 0, #strings.length(product.price)-2)} + ' сом'">Цена</p>
+                        Код товара: <strong th:utext="'<code id=product-id>' + ${product.id} + '</code>'">Код товара</strong><br><br>
+                        Количество (шт): <strong style="color: #06a21a" th:text="${product.qty}">Количество</strong>
+                    </h4>
+                    <h4 class="ps-product__price" th:if="${product.status} == -1 OR ${product.status} == -3">
+                        <p class="ps-product__price sale" th:inline="text">[[${product.discountPrice}]] сом
+                            <del class="ps-product__price del"
+                                 th:text="${#strings.substring(product.price, 0, #strings.length(product.price)-2)} + ' сом'">
+                                Старая цена</del>
+                            <small class="ps-product__price.sale small"
+                                   th:text="'(-' + ${product.discountPercent} + '%)'">Это скидка</small>
+                        </p>
+                        Код товара: <strong th:utext="'<code>' + ${product.id} + '</code>'">Код товара</strong><br>
+                        Количество (шт) - <strong style="color: red" th:text="${product.qty}">Количество</strong>
+                    </h4>
+                    <div class="ps-product__desc">
+                        <p>Статус:<a th:class="${product.qty == 0} ? 'ps-tag--out-stock' : 'ps-tag--in-stock'"
+                                     th:text="${product.qty == 0} ? ' Нет в наличии' : ' В наличии'">
+                            <strong> Нет в наличие</strong></a></p>
+                        <ul class="ps-list--dot">
+                            <li th:text="${product.bullet1}"> Описание 1</li>
+                            <li th:text="${product.bullet2}"> Описание 2</li>
+                            <li th:text="${product.bullet3}"> Описание 3</li>
+                            <li th:text="${product.bullet4}"> Описание 4</li>
+                            <li th:text="${product.bullet5}"> Описание 5</li>
+                        </ul>
+                    </div>
+                    <div class="ps-product__variations">
+                        <figure>
+                            <figcaption>Доступные цвета:</figcaption>
+                            <div class="ps-variant ps-variant--color" th:each="sizeColor : ${sizesColors}"
+                                 th:style="'background: ' + ${sizeColor.colorEnName}">
+                                <span class="ps-variant__tooltip" th:text="${sizeColor.colorName}">
+                                    Цвет
+                                </span>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="ps-product__shopping">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="border: #0D0A0A; background: #fbd5b5">
+                                        <h4 class="modal-title" id="myModalLabel" style="color: #000000">Успешно добавлено в корзину</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Чтобы удалить товар из избранных, ещё раз нажмите "В избранное"</p>
+                        <button id="addToFavoriteButton"
+                                class="ps-btn ps-btn--gray" ><i class="icon-heart"></i> В избранное
+                        </button>
+
+                        <button class="ps-btn ps-btn--rounded ps-badge--red product__action" href="#"
+                                id="multiplyButton" data-target="#myModal"
+                                data-toggle="modal" th:data-productid="${product.id}"><i class="icon-bag2"></i> В корзину
+                        </button>
+
+                        <button class="ps-btn ps-btn--rounded ps-badge--red product__action"id="myBtn" th:data-productid="${product.id}">
+                            <i class="icon-bag2"></i> Купить быстро
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="ps-product__content ps-tab-root">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                        <div class="ps-product__box">
+                            <ul class="ps-tab-list">
+                                <li class="active"><a href="#tab-1">Описание</a></li>
+                                <li><a href="#tab-2">Написать отзыв</a></li>
+                                <li><a href="#tab-3" th:text="'Отзывы (' + ${reviewsCount} + ')'" th:if="${product.rating} > 0">Отзывы</a></li>
+                            </ul>
+                            <div class="ps-tabs">
+                                <div class="ps-tab active" id="tab-1">
+                                    <div class="ps-document"
+                                         th:utext="${description == ''} ? 'Описание отсутствует' : ${description}"></div>
+                                </div>
+                                <div class="ps-tab" id="tab-2">
+                                    <div class="row">
+                                        <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12 ">
+                                            <form class="ps-form--review" th:action="@{/review}" method="post"
+                                                  th:object="${review}" id="product-review-form">
+                                                <h4>Ваш отзыв</h4>
+                                                <p><sup>*</sup><sup>*</sup><sup>*</sup> Все поля обязательны к заполнению <sup>*</sup><sup>*</sup><sup>*</sup></p>
+                                                <p id="textErrorForReview" style="color: red; text-transform:uppercase;"></p>
+                                                <div class="form-group form-group__rating">
+                                                    <p><label>Оценка:&nbsp;&nbsp;&nbsp;&nbsp;Плохо</label></p>
+                                                    <p><label>
+                                                        <select class="ps-rating" id="review-product-rating-box" data-read-only="false"
+                                                                onkeyup="successReviewButton()">
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                    </label>Хорошо</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="review-product-text"></label>
+                                                    <textarea class="form-control" rows="6"
+                                                              placeholder="Напишите здесь свой отзыв"
+                                                              id="review-product-text" onkeyup="successReviewButton()"></textarea>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-24  ">
+                                                        <div class="form-group">
+                                                            <label for="review-product-username"></label>
+                                                            <input class="form-control" type="text"
+                                                                   placeholder="Ваше имя"
+                                                                   id="review-product-username" th:field="*{userName}"
+                                                                   onkeyup="successReviewButton()">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group submit">
+                                                    <button class="ps-btn" id="review-product-button" disabled>Отправить отзыв</button>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ps-tab" id="tab-3" th:if="${product.rating} > 0">
+                                    <div class="ps-document">
+                                        <div class="row">
+                                            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+                                                <div class="ps-block--testimonial" th:each="review : ${reviews}">
+                                                    <div class="ps-block__content">
+                                                        <h4 th:text="${review.userName}"></h4>
+                                                        <p th:text="${review.date}"></p>
+                                                        <label>
+                                                            <select class="ps-rating" data-read-only="true">
+                                                                <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i <= review.rating} ? 1 : 2"></option>
+                                                            </select>
+                                                        </label>
+                                                        <p th:text="${review.text}"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="ps-block--average-rating">
+                                                    <div class="ps-block__header">
+                                                        <h3 th:text="${product.rating}"></h3>
+                                                        <label>
+                                                            <select class="ps-rating" data-read-only="true">
+                                                                <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i <= product.rating} ? 1 : 2"></option>
+                                                            </select>
+                                                        </label>
+                                                        <span th:text="'Отзывы (' + ${reviewsCount} + ')'">отзывы</span>
+                                                    </div>
+                                                    <div th:each="grouping : ${reviewsGrouping}">
+                                                        <div class="ps-block__star" th:if="${group.value} != 0"
+                                                             th:each="group : ${grouping}">
+                                                            <span th:text="${group.key}"></span>
+                                                            <div class="ps-progress" th:if="${group.value} != 0"
+                                                                 th:data-value="${#numbers.formatInteger((100 / (reviewsCount / group.value)), 1)}">
+                                                                <span></span>
+                                                            </div>
+                                                            <span th:text="${#numbers.formatInteger((100 / (reviewsCount / group.value)), 1)} + '%'"></span>
+                                                        </div>
+                                                        <div class="ps-block__star"  th:if="${group.value} == 0"
+                                                             th:each="group : ${grouping}">
+                                                            <span th:text="${group.key}"></span>
+                                                            <div class="ps-progress" data-value="0">
+                                                                <span></span>
+                                                            </div>
+                                                            <span>0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ps-section--default" th:if="${not #lists.isEmpty(related)}">
+            <div class="ps-section__header">
+                <h3>Рекомендуемые товары</h3>
+            </div>
+            <div class="ps-section__content">
+                <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-dots="true"
+                     data-owl-duration="1000"
+                     data-owl-gap="30" data-owl-item="6" data-owl-item-lg="4" data-owl-item-md="3" data-owl-item-sm="2"
+                     data-owl-item-xl="5" data-owl-item-xs="2" data-owl-loop="true" data-owl-mousedrag="on"
+                     data-owl-nav="true" data-owl-speed="10000">
+                    <div class="ps-product" th:each="related : ${related}">
+                        <div class="ps-product__thumbnail">
+                            <a th:href="'/product/' + ${related.seoUrl}">
+                                <img alt=""
+                                     th:src="${!related.imageUrl.empty} ? ${related.imageUrl} : @{/img/no-photo-small.jpg}"/>
+                            </a>
+                            <div class="ps-product__badge"
+                                 th:if="${related.status == -1 || related.status == -3}"
+                                 th:text="'-' + ${related.discountPercent} + '%'">
+                                Скидка
+                            </div>
+
+                        </div>
+                        <div class="ps-product__container">
+                            <a class="ps-product__vendor" href="https://api.whatsapp.com/send?phone=996706850185">0706 85 01 85 (WhatsApp)</a>
+                            <div class="ps-product__content">
+                                <a class="ps-product__title"
+                                   th:href="'/product/' + ${related.seoUrl}"
+                                   th:text="${related.name}">
+                                    Название товара
+                                </a>
+                                <div class="ps-product__rating" th:if="${related.rating} > 0">
+                                    <label>
+                                        <select class="ps-rating" data-read-only="true">
+                                            <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i <= related.rating} ? 1 : 2"></option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <p class="ps-product__price"
+                                   th:if="${related.status != -1 || related.status != -3}"
+                                   th:text="${#strings.substring(related.discountPrice, 0, #strings.length(related.discountPrice)-2)} + ' сом'">
+                                    Цена </p>
+                                <del th:if="${related.status == -1 || related.status == -3}"
+                                     th:text="${#strings.substring(related.price, 0, #strings.length(related.price)-2)} + ' сом'">
+                                    Старая цена
+                                </del>
+                            </div>
+                            <div class="ps-product__content hover">
+                                <a class="ps-product__title"
+                                   th:href="'/product/' + ${related.seoUrl}"
+                                   th:text="${related.name}">
+                                    Название товара
+                                </a>
+                                <p class="ps-product__price"
+                                   th:if="${related.status != -1 || related.status != -3}"
+                                   th:text="${#strings.substring(related.discountPrice, 0, #strings.length(related.discountPrice)-2)} + ' сом'">
+                                    Цена </p>
+                                <del th:if="${related.status == -1 || related.status == -3}"
+                                     th:text="${#strings.substring(related.price, 0, #strings.length(related.price)-2)} + ' сом'">
+                                    Старая цена
+                                </del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="ps-footer">
+    <div th:replace="footer :: footer"></div>
+</footer>
+
+<!-- Modal for fast buy -->
+<div id="fastBuyModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+            <p>(Если случайно открыли, нажмите на любое место вокруг)</p>
+            <input type="number" id="inputInFastBuyInput" placeholder="Ваш номер ..." class="fastBuyInputPhonenumber">
+            <input type="submit" id="submitInFastBuyInput" value="Купить быстро" class="fastBuyButton">
+            <p id="textInFastBuyInput"/>
+    </div>
+</div>
+
+<!-- Modal for Thanks, when fast buy is success -->
+<div id="thanksForFastBuyModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <p>Спасибо за ваш заказ :-)</p>
+        <p>Продавец вам позвонит для уточнения</p>
+        <input type="submit" id="submitInThanksFastBuy" value="Закрыть" class="fastBuyButton">
+    </div>
+</div>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.js"></script>
+
+<script>
+<!--Fast buy modal-->
+// Get the modal
+var modal = document.getElementById("fastBuyModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close");
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    document.getElementById("inputInFastBuyInput").value = '';
+  }
+}
+</script>
+
+</body>
+</html>

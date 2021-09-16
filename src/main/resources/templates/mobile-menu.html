@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <meta content="" name="author">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <title th:text="${name}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/Linearicons/Linearicons/Font/demo-files/demo.css">
+    <link rel="stylesheet" href="plugins/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="plugins/slick/slick/slick.css">
+    <link rel="stylesheet" href="plugins/lightGallery-master/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment="mobile-menu">
+    <div class="ps-panel--sidebar" id="navigation-mobile">
+        <div class="ps-panel__header">
+            <h3>Категории</h3>
+        </div>
+        <div class="ps-panel__content">
+            <ul class="menu--mobile" th:each="category : ${categoryName}">
+                <li class="menu-item-has-children has-mega-menu">
+                    <a th:href="'/category/' + ${category.translit}" th:text="${category.name}">Категории</a>
+                    <span class="sub-toggle"></span>
+                    <div class="mega-menu">
+                        <ul class="mega-menu__column" th:each="subCategory : ${category.subCategory}">
+                            <li>
+                                <a th:href="'/category/' + ${category.translit} + '/' + ${subCategory.translit}"
+                                   th:text="${subCategory.name}">Подкатегории</a>
+                            </li>
+                            <br>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ps-panel--sidebar" id="search-sidebar">
+        <div class="ps-panel__header">
+            <form class="ps-form--quick-search" method="get" th:action="@{/search}" th:object="${searchForm}">
+                <div class="form-group--nest">
+                    <label for="searchTextMobileMenu"></label>
+                    <input class="form-control" id="searchTextMobileMenu" placeholder="Поиск ..." th:field="*{text}" type="text">
+                    <button disabled id="searchButtonMobileMenu">Искать</button>
+                </div>
+            </form>
+        </div>
+        <div class="navigation__content"></div>
+    </div>
+
+    <div class="navigation--list">
+        <div class="navigation__content">
+            <a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile"><i class="icon-list4"></i><span> Категории</span></a>
+            <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar"><i class="icon-magnifier"></i><span> Поиск</span></a>
+            <a class="navigation__item ps-toggle--sidebar cart-link" href="/shopping-cart"><i
+                    class="icon-bag2"></i><span> Корзина</span></a>
+        </div>
+    </div>
+</div>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.min.js"></script>
+</body>
+</html>

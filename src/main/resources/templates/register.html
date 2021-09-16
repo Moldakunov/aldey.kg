@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <!--link(href="favicon.png" rel="icon" )-->
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title th:text="${title}">Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/Linearicons/Linearicons/Font/demo-files/demo.css">
+    <link rel="stylesheet" href="plugins/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="plugins/slick/slick/slick.css">
+    <link rel="stylesheet" href="plugins/lightGallery-master/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/market-place-1.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<!-- Всплывающее окно успешно-->
+<div id="myModalSuccess" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeSuccess">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h2>Вы успешно зарегистрировались</h2>
+            <h2>Спасибо за регистрацию)</h2>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+</div>
+<!-- Всплывающее окно ошибка-->
+<div id="myModalFailed" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="closeFailed">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h2>Ошибка при регистрации</h2>
+            <h2>Заполните все поля или обратитесь к администратору</h2>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+</div>
+
+<div class="ps-page--my-account">
+    <div class="ps-breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/index">Главная</a></li>
+                <li>Регистрация</li>
+            </ul>
+        </div>
+    </div>
+    <div class="ps-my-account">
+        <div class="container">
+            <form class="ps-form--account ps-tab-root" id="registerFormId">
+                <ul class="ps-tab-list">
+                    <li class="active"><a>Регистрация</a></li>
+                </ul>
+                <div class="ps-tabs">
+                    <div class="ps-tab active">
+                        <div class="ps-form__content">
+                            <h5><label style="color: red">* </label> - обязательное поле</h5>
+                            <div class="form-group">
+                                <label style="color: red">* </label><label> Имя пользователя</label>
+                                <input class="form-control form" onkeyup="successRegisterButton()" type="text"
+                                       placeholder="Имя пользователя" id="username" required
+                                       pattern="[a-zA-Z\u0400-\u04ff]{3,50}">
+                                <span class="validity"></span>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: red">* </label><label> E-Mail</label>
+                                <input class="form-control form" onkeyup="successRegisterButton()" type="email"
+                                       required placeholder="example@example.com" id="email"
+                                pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+                                <span class="validity"></span>
+                            </div>
+                            <div class="form-group">
+                                <label> Номер телефона</label>
+                                <!--<select class="form-control" id="sel1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>-->
+                    <input class="form-control form" type="tel" placeholder="0700123456" id="phoneNumber"
+                                       maxlength="10" minlength="10" pattern="[0]{1}[0-9]{3}[0-9]{3}[0-9]{3,6}"
+                                       required >
+                                <span class="validity"></span>
+                            </div>
+                            <div class="form-group">
+                                <label style="color: red">* </label><label> Пароль (минимум 6 символов)</label>
+                                <input class="form-control form" onkeyup="successRegisterButton()" type="password"
+                                       required placeholder="Пароль" id="password" minlength="6" maxlength="20"
+                                       onchange="checkPassword()">
+                                <span class="validity" id="passwordStatus"></span>
+                            </div>
+                            <div class="form-group form-forgot" >
+                                <label style="color: red">* </label><label> Повторите пароль (минимум 6 символов)</label>
+                                <input class="form-control form" onkeyup="successRegisterButton()" type="password"
+                                       required placeholder="Повторите пароль" id="repeatPassword" minlength="6"
+                                       maxlength="20" onchange="comparePasswords()">
+                                <span class="validity" id="repeatPasswordStatus"></span>
+                            </div>
+                            <div class="form-group submit">
+                                <button disabled id="registerButton" class="ps-btn ps-btn--fullwidth">
+                                    Зарегистрироваться
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br><br>
+<div th:insert="footer :: footer"></div>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="plugins/imagesloaded.pkgd.js"></script>
+<script src="plugins/masonry.pkgd.min.js"></script>
+<script src="plugins/isotope.pkgd.min.js"></script>
+<script src="plugins/jquery.matchHeight-min.js"></script>
+<script src="plugins/slick/slick/slick.min.js"></script>
+<script src="plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="plugins/slick-animation.min.js"></script>
+<script src="plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="plugins/jquery.slimscroll.min.js"></script>
+<script src="plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="js/main.js"></script>
+
+</body>
+</html>

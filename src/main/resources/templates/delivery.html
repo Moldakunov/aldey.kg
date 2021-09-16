@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title th:text="${title}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{plugins/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{fonts/Linearicons/Linearicons/Font/demo-files/demo.css}">
+    <link rel="stylesheet" th:href="@{plugins/bootstrap4/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/owl-carousel/assets/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{plugins/slick/slick/slick.css}">
+    <link rel="stylesheet" th:href="@{plugins/lightGallery-master/dist/css/lightgallery.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css}">
+    <link rel="stylesheet" th:href="@{plugins/jquery-ui/jquery-ui.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/select2/dist/css/select2.min.css}">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-page--single" id="contact-us">
+    <div class="ps-breadcrumb">
+        <div class="ps-container">
+            <div class="ps-layout--shop">
+                <div class="ps-layout__right">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/index">Главная</a>
+                        </li>
+                        <li>
+                            Доставка
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   добавим карту (google или 2gis)   -->
+    <div class="ps-contact-info">
+        <div class="container">
+            <div class="ps-section__header">
+                <h2>Доставка по городу Бишкек - БЕСПЛАТНО!</h2>
+                <p></p>
+                <h4>Время доставки по городу Бишкек:</h4>
+                <p>Если заказ сделан до 11:00, то товар доставляется до 14:00 часов этого дня.</p>
+                <p>Если заказ сделан с 11:00 до 15:00, то товар доставляется до 18:00 этого дня.</p>
+                <p>Если заказ сделан с 15:00 до 19:00, то товар доставляется до 21:00 этого дня.</p>
+                <p>Если заказ сделан после 19:00, то товар доставляется на следующий день до 14:00 часов.</p>
+                <h4>Время доставки по регионам Кыргызстана:</h4>
+                <p>Доставка на следующий день после обеда. Доставка по регионам Кыргызстана осуществляется по 100% предоплате и отправляется через курьерскую службу "Ылдам Экспресс" до двери клиента (доставка до двери уточняется дополнительно)</p>
+                <h4>Оплату можно произвести через электронный кошелек Элсом</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                    <figure class="ps-block--vendor-status">
+                        <table class="table ps-table ps-table--vendor-status">
+                            <tbody>
+                            <tr>
+                                <td><strong>Город</strong></td>
+                                <td><strong>Стоимость</strong></td>
+                            </tr>
+                            <tr>
+                                <td>г. Бишкек</td>
+                                <td>Бесплатно</td>
+                            </tr>
+                            <tr>
+                                <td>г. Ош</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>г. Баткен</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>г. Джалал-Абад</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>г. Нарын</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>г. Талас</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>г. Каракол</td>
+                                <td>200 сом</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </figure>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                    <figure class="ps-block--vendor-status">
+                        <table class="table ps-table ps-table--vendor-status">
+                            <tbody>
+                            <tr>
+                                <td><strong>Регион</strong></td>
+                                <td><strong>Стоимость</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Чуйская область</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Ошская область</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Баткенская область</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Джалал-Абадская область</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Нарынская область</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Таласская область</td>
+                                <td>200 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Иссык-Кульская область</td>
+                                <td>200 сом</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </figure>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                    <figure class="ps-block--vendor-status">
+                        <table class="table ps-table ps-table--vendor-status">
+                            <tbody>
+                            <tr>
+                                <td><strong>Точка доставки</strong></td>
+                                <td><strong>Стоимость</strong></td>
+                            </tr>
+                            <tr>
+                                <td>г. Кара-Балта</td>
+                                <td>450 сом</td>
+                            </tr>
+                            <tr>
+                                <td>г. Токмок</td>
+                                <td>450 сом</td>
+                            </tr>
+                            <tr>
+                                <td>г. Кант</td>
+                                <td>300 сом</td>
+                            </tr>
+                            <tr>
+                                <td>с. Достук</td>
+                                <td>100 сом</td>
+                            </tr>
+                            <tr>
+                                <td>с. Джал</td>
+                                <td>100 сом</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </figure>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                    <figure class="ps-block--vendor-status">
+                        <table class="table ps-table ps-table--vendor-status">
+                            <tbody>
+                            <tr>
+                                <td><strong>Точка доставки</strong></td>
+                                <td><strong>Стоимость</strong></td>
+                            </tr>
+                            <tr>
+                                <td>с. Александровка</td>
+                                <td>350 сом</td>
+                            </tr>
+                            <tr>
+                                <td>с. Орок</td>
+                                <td>100 сом</td>
+                            </tr>
+                            <tr>
+                                <td>с. Кашка-Баш</td>
+                                <td>100 сом</td>
+                            </tr>
+                            <tr>
+                                <td>с. Новопокровка</td>
+                                <td>100 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Сокулукский р-н</td>
+                                <td>300 сом</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </figure>
+                </div>
+            </div>
+            <h4>Остальные ж/м доставка стоит 50 сом</h4>
+            <h4>Экспресс доставка:</h4>
+            <p>Срочная доставка товара до 2000 сом составляет 200 сом, от 2000 сом составляет 150 сом.</p>
+            <p>Доставка осуществляется в течении 60 мин с момента заказа (если курьер опоздает, то доставка будет бесплатной).</p>
+            <p>Доставка в жилые массивы и в пригороды осуществляются по дополнительной оплате.</p>
+            <p>У клиента есть возможность заказать бесплатную доставку две модели товара на выбор и выбрать понравившийся при получении товара.</p>
+    </div>
+
+</div>
+
+<footer class="ps-footer">
+    <div th:replace="footer :: footer"></div>
+</footer>
+
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.min.js"></script>
+</body>
+</html>

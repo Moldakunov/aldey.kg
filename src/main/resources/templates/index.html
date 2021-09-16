@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="Магазин оригинальной электроники. Всегда акции и скидки. Продукция Xiaomi, Realme, Apple по низким ценам.">
+    <title th:text="${title}">TITLE</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/Linearicons/Linearicons/Font/demo-files/demo.css">
+    <link rel="stylesheet" href="plugins/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="plugins/slick/slick/slick.css">
+    <link rel="stylesheet" href="plugins/lightGallery-master/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/market-place-3.css">
+    <meta name="google-site-verification" content="cNDnjiYu9uiOpxggxwsEMqWUSFvYtQQLQFRXiyukUDo" />
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-panel--sidebar" id="cart-mobile">
+    <div class="ps-panel__header">
+        <h3>Shopping Cart</h3>
+    </div>
+    <div class="navigation__content">
+        <div class="ps-cart--mobile">
+            <div class="ps-cart__content">
+                <div class="ps-product--cart-mobile">
+                    <div class="ps-product__thumbnail"><a href="#"><img src="#" alt=""></a></div>
+                    <div class="ps-product__content"><a class="ps-product__remove" href="#"><i class="icon-cross"></i></a><a href="product-default.html">MVMTH Classical Leather Watch In Black</a>
+                        <p><strong>Sold by:</strong>  YOUNG SHOP</p><small>1 x $59.99</small>
+                    </div>
+                </div>
+            </div>
+            <div class="ps-cart__footer">
+                <h3>Sub Total:<strong>$59.99</strong></h3>
+                <figure><a class="ps-btn" href="shopping-cart.html">View Cart</a><a class="ps-btn" href="checkout.html">Checkout</a></figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="navigation--list">
+    <div class="navigation__content">
+        <a class="navigation__item ps-toggle--sidebar" href="#navigation-mobile">
+            <i class="icon-list4"></i>
+            <span> Категории</span></a>
+        <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar">
+            <i class="icon-magnifier"></i>
+            <span> Поиск</span></a>
+        <a class="navigation__item ps-toggle--sidebar cart-link" href="/shopping-cart">
+            <i class="icon-bag2"></i>
+            <span> Корзина</span></a>
+    </div>
+</div>
+<br>
+<div id="homepage-8">
+
+    <div class="ps-home-banner">
+        <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
+            <div class="ps-banner--furniture" ><img src="images/slider-1.jpg" alt="">
+
+            </div>
+            <div class="ps-banner--furniture" ><img src="images/slider-2.jpg" alt="">
+
+            </div>
+            <div class="ps-banner--furniture" ><img src="images/slider-3.jpg" alt="">
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="ps-site-features">
+        <div class="ps-container">
+            <div class="ps-block--site-features">
+                <a href="https://api.whatsapp.com/send?phone=996776495312">
+                    <div class="ps-block__item">
+                        <div class="ps-block__left"><i class="fa fa-phone"></i></div>
+                        <div class="ps-block__right">
+                            <h4>WhatsApp</h4>
+                            <p>город Бишкек</p>
+                        </div>
+                    </div></a>
+                <a href="https://api.whatsapp.com/send?phone=996776374285">
+                <div class="ps-block__item">
+                    <div class="ps-block__left"><i class="fa fa-phone"></i></div>
+                            <div class="ps-block__right">
+                                <h4>WhatsApp</h4>
+                                <p>город Ош</p>
+                            </div>
+                </div></a>
+                <a href="https://www.instagram.com/aldey_aldey/"><div class="ps-block__item">
+                    <div class="ps-block__left"><i class="fa fa-instagram"></i></div>
+                    <div class="ps-block__right">
+                        <h4>Instagram</h4>
+                        <p>Бишкек</p>
+                    </div>
+                </div></a>
+                <a href="https://www.instagram.com/aldey_aldey_osh/"><div class="ps-block__item">
+                    <div class="ps-block__left"><i class="fa fa-instagram"></i></div>
+                    <div class="ps-block__right">
+                        <h4>Instagram</h4>
+                        <p>город Ош</p>
+                    </div>
+                </div></a>
+                <a href="https://www.instagram.com/aldey_aldey_jalalabad/"><div class="ps-block__item">
+                    <div class="ps-block__left"><i class="fa fa-instagram"></i></div>
+                    <div class="ps-block__right">
+                        <h4>Instagram</h4>
+                        <p>Жалал Абад</p>
+                    </div>
+                </div></a>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="ps-product-list ps-clothings">
+        <div class="ps-container">
+            <div class="ps-section__header">
+                <h3>Наши новинки товаров</h3>
+            </div>
+            <div class="ps-section__content">
+                <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false" data-owl-speed="10000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="7" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
+                    <div class="ps-product" th:each="newProduct : ${newProducts}">
+                        <div class="ps-product__thumbnail">
+                            <a th:href="'/product/' + ${newProduct.seoUrl}">
+                                <img th:src="${!newProduct.imageUrl.empty} ? ${newProduct.imageUrl} : @{/img/no-photo-small.jpg}" alt=""/></a>
+                            <!--<div class="ps-product__badge">Новинка</div>-->
+                            <ul class="ps-product__actions">
+                                <li>
+                                    <a class="product___action" data-toggle="tooltip" data-placement="top" id="fastBuyIndex"
+                                       title="Купить в один клик" th:data-productid="${newProduct.id}">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="product__action" href="#" data-toggle="tooltip" data-placement="top"
+                                       title="Добавить в корзину" th:data-productid="${newProduct.id}" onclick="alert('Успешно добавлено в корзину');">
+                                        <i class="fa fa-shopping-bag"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="'/product/' + ${newProduct.seoUrl}" data-toggle="tooltip" data-placement="top" title="Подробнее о товаре" >
+                                        <i class="fa fa-info"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ps-product__container">
+                            <a class="ps-product__vendor" th:href="'/product/' + ${newProduct.seoUrl}">0776 49 53 12</a>
+                            <div class="ps-product__content">
+                                <a class="ps-product__title" th:href="'/product/' + ${newProduct.seoUrl}" th:text="${newProduct.nameShort}">Название</a>
+                                <p class="ps-product__price sale" th:if="${newProduct.status == 0 || newProduct.status == -2}"
+                                   th:text="${#strings.substring(newProduct.price, 0, #strings.length(newProduct.price)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${newProduct.status == -1 || newProduct.status == -3}"
+                                   th:text="${#strings.substring(newProduct.discountPrice, 0, #strings.length(newProduct.discountPrice)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${newProduct.status == -4 || newProduct.status == -5}">На складе или предзаказ</p>
+                            </div>
+                            <div class="ps-product__content hover">
+                                <a class="ps-product__title" th:href="'/product/' + ${newProduct.seoUrl}" th:text="${newProduct.nameShort}">Название</a>
+                                <p class="ps-product__price sale" th:if="${newProduct.status == 0 || newProduct.status == -2}"
+                                   th:text="${#strings.substring(newProduct.price, 0, #strings.length(newProduct.price)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${newProduct.status == -1 || newProduct.status == -3}"
+                                   th:text="${#strings.substring(newProduct.discountPrice, 0, #strings.length(newProduct.discountPrice)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${newProduct.status == -4 || newProduct.status == -5}">На складе или предзаказ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="ps-home-banner">
+        <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
+            <div class="ps-banner--furniture" ><img src="images/slider-4.jpg" alt="">
+
+            </div>
+            <div class="ps-banner--furniture" ><img src="images/slider-5.jpg" alt="">
+
+            </div>
+            <div class="ps-banner--furniture" ><img src="images/slider-6.jpg" alt="">
+
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="ps-product-list ps-clothings">
+        <div class="ps-container">
+            <div class="ps-section__header">
+                <h3>Последние поступления товаров</h3>
+            </div>
+            <div class="ps-section__content">
+                <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false" data-owl-speed="10000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="7" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
+                    <div class="ps-product" th:each="newIncomeProduct : ${newIncomeProducts}">
+                        <div class="ps-product__thumbnail">
+                            <a th:href="'/product/' + ${newIncomeProduct.seoUrl}">
+                                <img th:src="${!newIncomeProduct.imageUrl.empty} ? ${newIncomeProduct.imageUrl} : @{/img/no-photo-small.jpg}" alt=""/></a>
+                            <ul class="ps-product__actions">
+                                <li>
+                                    <a class="product___action" href="#" data-toggle="tooltip" data-placement="top"
+                                       title="Купить в один клик" th:data-productid="${newIncomeProduct.id}">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="product__action" href="#" data-toggle="tooltip" data-placement="top"
+                                       title="Добавить в корзину" th:data-productid="${newIncomeProduct.id}" onclick="alert('Успешно добавлено в корзину');">
+                                        <i class="fa fa-shopping-bag"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="'/product/' + ${newIncomeProduct.seoUrl}" data-toggle="tooltip" data-placement="top" title="Подробнее о товаре" >
+                                        <i class="fa fa-info"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ps-product__container"><a class="ps-product__vendor" th:href="'/product/' + ${newIncomeProduct.seoUrl}">0776 49 53 12</a>
+                            <div class="ps-product__content">
+                                <a class="ps-product__title" th:href="'/product/' + ${newIncomeProduct.seoUrl}" th:text="${newIncomeProduct.nameShort}">Название</a>
+                                <p class="ps-product__price sale" th:if="${newIncomeProduct.status == 0 || newIncomeProduct.status == -2}"
+                                   th:text="${#strings.substring(newIncomeProduct.price, 0, #strings.length(newIncomeProduct.price)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${newIncomeProduct.status == -1 || newIncomeProduct.status == -3}"
+                                   th:text="${#strings.substring(newIncomeProduct.discountPrice, 0, #strings.length(newIncomeProduct.discountPrice)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${newIncomeProduct.status == -4 || newIncomeProduct.status == -5}">На складе или предзаказ</p>
+                            </div>
+                            <div class="ps-product__content hover">
+                                <a class="ps-product__title" th:href="'/product/' + ${newIncomeProduct.seoUrl}" th:text="${newIncomeProduct.nameShort}">Название</a>
+                                <p class="ps-product__price sale" th:if="${newIncomeProduct.status == 0 || newIncomeProduct.status == -2}"
+                                   th:text="${#strings.substring(newIncomeProduct.price, 0, #strings.length(newIncomeProduct.price)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${newIncomeProduct.status == -1 || newIncomeProduct.status == -3}"
+                                   th:text="${#strings.substring(newIncomeProduct.discountPrice, 0, #strings.length(newIncomeProduct.discountPrice)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${newIncomeProduct.status == -4 || newIncomeProduct.status == -5}">На складе или предзаказ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="ps-product-list ps-clothings">
+        <div class="ps-container">
+            <div class="ps-section__header">
+                <h3>Самые продаваемые товары</h3>
+            </div>
+            <div class="ps-section__content">
+                <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false" data-owl-speed="10000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="7" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
+                    <div class="ps-product" th:each="hitProduct : ${hitProducts}">
+                        <div class="ps-product__thumbnail">
+                            <a th:href="'/product/' + ${hitProduct.seoUrl}">
+                                <img th:src="${!hitProduct.imageUrl.empty} ? ${hitProduct.imageUrl} : @{/img/no-photo-small.jpg}" alt=""/></a>
+                            <ul class="ps-product__actions">
+                                <li>
+                                    <a class="product___action" href="#" data-toggle="tooltip" data-placement="top"
+                                       title="Купить в один клик" th:data-productid="${hitProduct.id}">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="product__action" href="#" data-toggle="tooltip" data-placement="top"
+                                       title="Добавить в корзину" th:data-productid="${hitProduct.id}" onclick="alert('Успешно добавлено в корзину');">
+                                        <i class="fa fa-shopping-bag"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="'/product/' + ${hitProduct.seoUrl}" data-toggle="tooltip" data-placement="top" title="Подробнее о товаре" >
+                                        <i class="fa fa-info"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ps-product__container"><a class="ps-product__vendor" th:href="'/product/' + ${hitProduct.seoUrl}">0776 49 53 12</a>
+                            <div class="ps-product__content">
+                                <a class="ps-product__title" th:href="'/product/' + ${hitProduct.seoUrl}" th:text="${hitProduct.nameShort}">Название</a>
+                                <p class="ps-product__price sale" th:if="${hitProduct.status == 0 || hitProduct.status == -2}"
+                                   th:text="${#strings.substring(hitProduct.price, 0, #strings.length(hitProduct.price)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${hitProduct.status == -1 || hitProduct.status == -3}"
+                                   th:text="${#strings.substring(hitProduct.discountPrice, 0, #strings.length(hitProduct.discountPrice)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${hitProduct.status == -4 || hitProduct.status == -5}">На складе или предзаказ</p>
+                            </div>
+                            <div class="ps-product__content hover">
+                                <a class="ps-product__title" th:href="'/product/' + ${hitProduct.seoUrl}" th:text="${hitProduct.nameShort}">Название</a>
+                                <p class="ps-product__price sale" th:if="${hitProduct.status == 0 || hitProduct.status == -2}"
+                                   th:text="${#strings.substring(hitProduct.price, 0, #strings.length(hitProduct.price)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${hitProduct.status == -1 || hitProduct.status == -3}"
+                                   th:text="${#strings.substring(hitProduct.discountPrice, 0, #strings.length(hitProduct.discountPrice)-2)} + ' сом'">Цена</p>
+                                <p class="ps-product__price sale" th:if="${hitProduct.status == -4 || hitProduct.status == -5}">На складе или предзаказ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="ps-home-ads">
+        <div class="ps-container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 ">
+                    <a class="ps-collection"><img src="images/slider-10.jpg" alt=""></a>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 ">
+                    <a class="ps-collection"><img src="images/slider-11.jpg" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="border: #0D0A0A; background: #00bbd3">
+                <h4 class="modal-title" id="myModalLabel" style="color: #000000">Успешно добавлено в корзину</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer class="ps-footer">
+    <div th:replace="footer :: footer"></div>
+</footer>
+
+<!-- Modal for fast buy -->
+<div id="fastBuyModalInIndex" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <p>(Если случайно открыли, нажмите на любое место вокруг)</p>
+        <input type="number" id="inputInFastBuyInputInIndex" placeholder="Ваш номер ..." class="fastBuyInputPhonenumber">
+        <input type="submit" id="submitInFastBuyInputInIndex" value="Купить быстро" class="fastBuyButton">
+        <p id="textInFastBuyInputInIndex"/>
+    </div>
+</div>
+
+<!-- Modal for Thanks, when fast buy is success -->
+<div id="thanksForFastBuyModalInIndex" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <p>Спасибо за ваш заказ :-)</p>
+        <p>Продавец вам позвонит для уточнения</p>
+        <input type="submit" id="submitInThanksFastBuyInIndex" value="Закрыть" class="fastBuyButton">
+    </div>
+</div>
+
+<div id="back2top"><i class="pe-7s-angle-up"></i></div>
+<div class="ps-site-overlay"></div>
+<div id="loader-wrapper">
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<div class="ps-search" id="site-search"><a class="ps-btn--close" href="#"></a>
+    <div class="ps-search__content">
+        <form class="ps-form--primary-search" action="do_action" method="post">
+            <input class="form-control" type="text" placeholder="Search for...">
+            <button><i class="aroma-magnifying-glass"></i></button>
+        </form>
+    </div>
+</div>
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="plugins/imagesloaded.pkgd.js"></script>
+<script src="plugins/masonry.pkgd.min.js"></script>
+<script src="plugins/isotope.pkgd.min.js"></script>
+<script src="plugins/jquery.matchHeight-min.js"></script>
+<script src="plugins/slick/slick/slick.min.js"></script>
+<script src="plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="plugins/slick-animation.min.js"></script>
+<script src="plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="plugins/jquery.slimscroll.min.js"></script>
+<script src="plugins/select2/dist/js/select2.full.min.js"></script>
+<script src="plugins/gmap3.min.js"></script>
+<!-- Custom scripts-->
+<script src="js/main.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxflHHc5FlDVI-J71pO7hM1QJNW1dRp4U&amp;region=GB"></script>
+</body>
+</html>

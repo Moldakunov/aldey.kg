@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title th:text="${title}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link rel="stylesheet"
+          th:href="@{https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext}">
+    <link rel="stylesheet" th:href="@{plugins/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{fonts/Linearicons/Linearicons/Font/demo-files/demo.css}">
+    <link rel="stylesheet" th:href="@{plugins/bootstrap4/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/owl-carousel/assets/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{plugins/slick/slick/slick.css}">
+    <link rel="stylesheet" th:href="@{plugins/lightGallery-master/dist/css/lightgallery.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css}">
+    <link rel="stylesheet" th:href="@{plugins/jquery-ui/jquery-ui.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/select2/dist/css/select2.min.css}">
+    <link rel="stylesheet" th:href="@{css/style.min.css}">
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/index">Главная</a></li>
+            <li>О нас</li>
+        </ul>
+    </div>
+</div>
+
+<div class="ps-page--single" id="about-us"><img alt="" th:src="@{img/bg/about-us.jpg}">
+    <div class="ps-about-intro">
+        <div class="container">
+            <div class="ps-section__header">
+                <h4>Добро пожаловать</h4>
+                <h3>Что-то важное</h3>
+                <p>Что-то не важное и т.д. ниже можете не читать</p>
+            </div>
+            <div class="ps-section__content">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
+                        <div class="ps-block--icon-box"><i class="icon-cube"></i>
+                            <h4>45M</h4>
+                            <p>Product for sale</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
+                        <div class="ps-block--icon-box"><i class="icon-store"></i>
+                            <h4>1.8M</h4>
+                            <p>Sellers Active on Martfury</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
+                        <div class="ps-block--icon-box"><i class="icon-bag2"></i>
+                            <h4>30.6M</h4>
+                            <p>Buyer active on Martfury</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-6 ">
+                        <div class="ps-block--icon-box"><i class="icon-cash-dollar"></i>
+                            <h4>$2.46M</h4>
+                            <p>Annual gross merchandise sales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--include ../../partials/pages/about-us/milestone-->
+    <div class="ps-our-team">
+        <div class="container">
+            <div class="ps-section__header">
+                <h3>Meet Our Leaders</h3>
+            </div>
+            <div class="ps-section__content">
+                <figure>
+                    <div class="ps-block--ourteam"><img alt="" th:src="@{img/users/our-team/1.jpg}">
+                        <div class="ps-block__content">
+                            <h4>Robert Downey Jr</h4>
+                            <p>CEO Fouder</p>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="ps-block--ourteam"><img alt="" th:src="@{img/users/our-team/2.jpg}">
+                        <div class="ps-block__content">
+                            <h4>Robert Downey Jr</h4>
+                            <p>CEO Fouder</p>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="ps-block--ourteam"><img alt="" th:src="@{img/users/our-team/3.jpg}">
+                        <div class="ps-block__content">
+                            <h4>Robert Downey Jr</h4>
+                            <p>CEO Fouder</p>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="ps-block--ourteam"><img alt="" th:src="@{img/users/our-team/4.jpg}">
+                        <div class="ps-block__content">
+                            <h4>Robert Downey Jr</h4>
+                            <p>CEO Fouder</p>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="ps-block--ourteam"><img alt="" th:src="@{img/users/our-team/5.jpg}">
+                        <div class="ps-block__content">
+                            <h4>Robert Downey Jr</h4>
+                            <p>CEO Fouder</p>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="ps-block--ourteam"><img alt="" th:src="@{img/users/our-team/6.jpg}">
+                        <div class="ps-block__content">
+                            <h4>Robert Downey Jr</h4>
+                            <p>CEO Fouder</p>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </figure>
+                <figure>
+                    <div class="ps-block--ourteam"><img alt="" th:src="@{img/users/our-team/7.jpg}">
+                        <div class="ps-block__content">
+                            <h4>Robert Downey Jr</h4>
+                            <p>CEO Fouder</p>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </figure>
+                <figure data-mh="our-team">
+                    <div class="ps-block--ourteam blank"><a href="#">Become <br> member in <br> team</a></div>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="ps-about-awards">
+        <div class="container">
+            <div class="ps-section__header">
+                <h4>Awards & Recognition</h4>
+                <p>Industry leaders and influencers recognize Overstock as one of the most trust worthy retail companies
+                    in the U.S., ranking high for both customer and employee satisfaction.</p>
+            </div>
+            <div class="ps-section__content">
+                <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="15000"
+                     data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="3"
+                     data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1500"
+                     data-owl-mousedrag="off"><a href="#"><img src="img/awards/1.png" alt=""></a><a href="#"><img
+                        src="img/awards/2.png" alt=""></a><a href="#"><img src="img/awards/3.png" alt=""></a><a
+                        href="#"><img src="img/awards/4.png" alt=""></a><a href="#"><img src="img/awards/5.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="ps-footer">
+    <div th:replace="footer :: footer"></div>
+</footer>
+
+<!--<div id="back2top"><i class="pe-7s-angle-up"></i></div>
+<div class="ps-site-overlay"></div>
+<div id="loader-wrapper">
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<div class="ps-search" id="site-search"><a class="ps-btn&#45;&#45;close" href="#"></a>
+    <div class="ps-search__content">
+        <form class="ps-form&#45;&#45;primary-search" action="do_action" method="post">
+            <label>
+                <input class="form-control" placeholder="Search for..." type="text">
+            </label>
+            <button><i class="aroma-magnifying-glass"></i></button>
+        </form>
+    </div>
+</div>-->
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.min.js"></script>
+</body>
+</html>

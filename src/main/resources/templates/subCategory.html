@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <body>
+        <div class="ps-shopping ps-tab-root">
+
+            <div class="ps-shopping__header">
+                <p>Товаров в этой подкатегории: <strong th:text="${totalCount}">количество</strong></p>
+                <select id="select-sorting-with-reload" class="ps-select" data-placeholder="Sort Items">
+                    <option id="select-sorting-default">По умолчанию</option>
+                    <option id="select-sorting-price-desc">Цена: по убыванию</option>
+                    <option id="select-sorting-price-asc">Цена: по возрастанию</option>
+                </select>
+            </div>
+            <div class="ps-tabs">
+                <div class="ps-tab active" id="tab-1">
+                    <div class="ps-shopping-product">
+                        <div class="row" id="row"></div>
+                    </div>
+                </div>
+                <div class="ps-pagination">
+                    <span id="totalCount" style="display:none" th:text="${totalCount}"></span>
+                    <span id="category" style="display:none" th:text="${category}"></span>
+                    <span id="subCategory" style="display:none" th:text="${subCategory}"></span>
+                    <span id="totalPages" style="display:none" th:text="${totalPages}"></span>
+                    <ul class="pagination" id="pagination">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

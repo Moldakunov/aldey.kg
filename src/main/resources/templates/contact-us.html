@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title th:text="${title}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{plugins/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{fonts/Linearicons/Linearicons/Font/demo-files/demo.css}">
+    <link rel="stylesheet" th:href="@{plugins/bootstrap4/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/owl-carousel/assets/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{plugins/slick/slick/slick.css}">
+    <link rel="stylesheet" th:href="@{plugins/lightGallery-master/dist/css/lightgallery.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css}">
+    <link rel="stylesheet" th:href="@{plugins/jquery-ui/jquery-ui.min.css}">
+    <link rel="stylesheet" th:href="@{plugins/select2/dist/css/select2.min.css}">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-page--single" id="contact-us">
+    <div class="ps-breadcrumb">
+        <div class="ps-container">
+            <div class="ps-layout--shop">
+                <div class="ps-layout__right">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/index">Главная</a>
+                        </li>
+                        <li>
+                            Контакты
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   добавим карту (google или 2gis)   -->
+    <div class="ps-contact-info">
+        <div class="container">
+            <div class="ps-section__content">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
+                        <div class="ps-block--contact-info">
+                            <h4>Филиал г. Бишкек ТАЦ "Весна"</h4>
+                            <a href="https://api.whatsapp.com/send?phone=996776495312" target="_blank"><p><i class="fa fa-phone"></i><span> +996 776 49 53 12 (WhatsApp)</span></p></a>
+                            <a href="https://go.2gis.com/cegnbi"><p><i class="fa fa-compass"></i><span> Кыргызстан, г. Бишкек, ул. Калык Акиева 66, ТАЦ "Весна", 3-этаж, 24-бутик</span></p></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
+                        <div class="ps-block--contact-info">
+                            <h4>Филиал г. Бишкек р/к Орто-Сай</h4>
+                            <a href="https://api.whatsapp.com/send?phone=996776495312" target="_blank"><p><i class="fa fa-phone"></i><span> +996 776 49 53 12 (WhatsApp)</span></p></a>
+                            <a href="https://go.2gis.com/cegnbi"><p><i class="fa fa-compass"></i><span> Кыргызстан, г. Бишкек, ул. Жукеева Пудовкина 146 пер. Суеркулова</span></p></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
+                        <div class="ps-block--contact-info">
+                            <h4>Филиал г. Ош</h4>
+                            <a href="https://api.whatsapp.com/send?phone=996776374285" target="_blank"><p><i class="fa fa-phone"></i><span> +996 776 37 42 85 (WhatsApp)</span></p></a>
+                            <a href="https://go.2gis.com/cjus3"><p><i class="fa fa-compass"></i><span> Кыргызстан, г. Ош, ул. Курманжан Датка 213А/1</span></p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="ps-footer">
+    <div th:replace="footer :: footer"></div>
+</footer>
+
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.min.js"></script>
+</body>
+</html>

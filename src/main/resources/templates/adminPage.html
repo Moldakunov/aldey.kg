@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN MYSHKA KG</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/plugins/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+    <h2>Для красавчика Алишер байке</h2>
+    <h2>Замена баннеров Мышка:</h2>
+    <h3>Максимальный размер одного файла - 500 КБ</h3>
+    <h3>Тип(расширение) файла должен ОБЯЗАТЕЛЬНО быть: .jpeg (Пример: мойбаннер.jpeg)</h3><br/>
+    <h3>Баннеры в начале:</h3>
+    <h4>Слайдер первый 3 баннера (размер - 1920х430):</h4>
+    Баннер 1: <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    Баннер 2: <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    Баннер 3: <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    <br>
+    <h4>Слайдер второй после "Новинки" 3 баннера (размер - 1920х430):</h4>
+    Баннер 1: <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    Баннер 2: <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    Баннер 3: <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    <br>
+    <!--<h4>Слайдер третий после "Последние поступления" 3 баннера (размер - 1920х430):</h4>
+    Баннер 1: <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    Баннер 2: <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    Баннер 3: <input type="file" accept="image/jpeg" name="files"/><br/><br/>-->
+    <br>
+    <h4>Последние 2 баннера:</h4>
+    Баннер 1: (размер - 1090х245) <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+    Баннер 2: (размер - 530х245) <input type="file" accept="image/jpeg" name="files"/><br/><br/>
+
+    <input type="submit" value="Заменить баннеры" id="submitButton"/>
+</form>
+
+<h2>Результат загрузки изображений:</h2>
+<div style="border:1px solid #ccc;padding: 5px;">
+    <span id="result"></span>
+</div><br/>
+<button type="button" onclick="location.href='/'">Выйти</button>
+
+<!-- Custom scripts-->
+<script src="/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <!--link(href="favicon.png" rel="icon" )-->
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title th:text="${title}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/Linearicons/Linearicons/Font/demo-files/demo.css">
+    <link rel="stylesheet" href="plugins/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="plugins/slick/slick/slick.css">
+    <link rel="stylesheet" href="plugins/lightGallery-master/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/market-place-1.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/electronic.css">
+
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-page--my-account">
+    <div class="ps-breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/index">Главная</a></li>
+                <li>Личный кабинет</li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <section class="ps-section--account">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="ps-section__left">
+                        <aside class="ps-widget--account-dashboard">
+                            <div class="ps-widget__header">
+                                <figure>
+                                    <h3>Привет</h3>
+                                    <h3 th:text="${userName}">Имя</h3>
+                                    <strong>Ваш ID: </strong><strong id="userId">[[${id}]]</strong><br>
+                                </figure>
+                            </div>
+                            <br>
+                            <div class="ps-widget__content">
+                                <ul>
+                                    <li class="active">
+                                        <a href="/account" style="font-size: large"><i class="icon-user"></i>Личные настройки</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/orders" style="font-size: large"><i class="icon-papers"></i>Покупки</a>
+                                    </li>
+                                    <li>
+                                        <a href="/favorites" style="font-size: large"><i class="icon-heart"></i>Избранные товары</a>
+                                    </li>
+                                    <li>
+                                        <a href="/" style="font-size: large" id="signOutButton"><i class="icon-power-switch"></i>Выйти</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>                    </div>
+                <div class="col-lg-8">
+                    <div class="ps-section__right">
+                        <form class="ps-form--account-setting" action="#" method="post">
+                            <div class="ps-form__header">
+                                <h3>Информация о Вас</h3>
+                            </div>
+                            <div class="my-custom-class-for-errors">
+
+                            </div>
+                            <div class="ps-form__content">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Ваше имя</label>
+                                            <p th:text="${userName}">Имя</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <p th:text="${email}">Почта</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Ваш номер</label>
+                                            <p th:text="${phone}">Номер</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Ф.И.О.</label>
+                                            <p th:text="${userName}">Ф.И.О.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4>Изменение пароля</h4>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label class="required">Старый пароль</label>
+                                                <input type="password" onkeyup="successUpdatePasswordButton()" class="form-control form-control" id="oldPassword">
+                                                <small class="form-text text-muted">Внимание!!! Правильно введите старый пароль</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label>Новый пароль</label>
+                                                <input type="password" onkeyup="successUpdatePasswordButton()" class="form-control form-control" id="newPassword">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group submit">
+                                <button disabled class="ps-btn" id="updatePasswordButton">Сменить пароль</button>
+                            </div>
+                            <input type="hidden" id="userProfile__token" name="userProfile[_token]" value="D_IGFIhQoUXIxo7URkziQaMg1vS9n8-9ZeSSgr8Dqvc">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<br><br>
+<div th:insert="footer :: footer"></div>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="plugins/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="plugins/imagesloaded.pkgd.js"></script>
+<script src="plugins/masonry.pkgd.min.js"></script>
+<script src="plugins/isotope.pkgd.min.js"></script>
+<script src="plugins/jquery.matchHeight-min.js"></script>
+<script src="plugins/slick/slick/slick.min.js"></script>
+<script src="plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="plugins/slick-animation.min.js"></script>
+<script src="plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="plugins/jquery.slimscroll.min.js"></script>
+<script src="plugins/select2/dist/js/select2.full.min.js"></script>
+
+<!-- Custom scripts-->
+<script src="js/main.js"></script>
+
+</body>
+</html>

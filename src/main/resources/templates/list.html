@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--link(href="apple-touch-icon.png" rel="apple-touch-icon")-->
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" th:if="${category != null && subCategory == null}" th:content="${categoryMeta}">
+    <meta name="description" th:if="${subCategory != null}" th:content="${subCategoryMeta}">
+    <title th:text="${title}">Title</title>
+    <link href="/img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;subset=latin-ext"
+          rel="stylesheet">
+    <link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/fonts/Linearicons/Linearicons/Font/demo-files/demo.css" rel="stylesheet">
+    <link href="/plugins/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/plugins/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+    <link href="/plugins/slick/slick/slick.css" rel="stylesheet">
+    <link href="/plugins/lightGallery-master/dist/css/lightgallery.min.css" rel="stylesheet">
+    <link href="/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css" rel="stylesheet">
+    <link href="/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="/plugins/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="header header--1" data-sticky="true">
+    <div th:replace="header :: header"></div>
+</header>
+
+<header class="header header--mobile" data-sticky="true">
+    <div th:replace="header-mobile :: header"></div>
+</header>
+
+<div class="mobile-menu">
+    <div th:insert="mobile-menu :: mobile-menu"></div>
+</div>
+
+<div class="ps-breadcrumb">
+    <div class="ps-container">
+        <div class="ps-layout--shop">
+            <div class="ps-layout__right">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="/index">Главная</a>
+                    </li>
+                    <li th:if="${category != null && subCategory == null}">
+                        <a th:href="'/category'+'/'+${category}" th:text="${categoryNoTranslitName}">Категория</a>
+                    </li>
+                    <li th:if="${subCategory != null}">
+                        <a th:href="'/category'+'/'+${category}" th:text="${categoryNoTranslitName}">Категория</a>
+                        /
+                        <a th:href="'/category'+'/'+${category}+'/'+${subCategory}"
+                           th:text="${subCategoryNoTranslitName}">Подкатегория</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ps-page--shop" id="shop-sidebar">
+    <div class="container">
+        <div class="ps-layout--shop">
+            <div class="ps-layout__right" th:if="${searchTextForUser != null}" th:insert="search-result"></div>
+            <div class="ps-layout__right" th:if="${category != null && subCategory == null}" th:insert="category"></div>
+            <div class="ps-layout__right" th:if="${subCategory != null}" th:insert="subCategory"></div>
+        </div>
+    </div>
+</div>
+
+<footer class="ps-footer">
+    <div th:replace="footer :: footer"></div>
+</footer>
+
+<!--include shared/cart-sidebar-->
+<!-- Plugins-->
+<script src="/plugins/jquery-1.12.4.min.js"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js}"></script>
+<script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+<script src="/plugins/bootstrap4/js/bootstrap.min.js"></script>
+<script src="/plugins/imagesloaded.pkgd.js"></script>
+<script src="/plugins/masonry.pkgd.min.js"></script>
+<script src="/plugins/isotope.pkgd.min.js"></script>
+<script src="/plugins/jquery.matchHeight-min.js"></script>
+<script src="/plugins/slick/slick/slick.min.js"></script>
+<script src="/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+<script src="/plugins/slick-animation.min.js"></script>
+<script src="/plugins/lightGallery-master/dist/js/lightgallery-all.min.js"></script>
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/plugins/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+<script src="/plugins/jquery.slimscroll.min.js"></script>
+<script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+<script th:src='@{https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js}'></script>
+
+<!-- Custom scripts-->
+<script src="/js/main.min.js"></script>
+<script src="/js/pagination.min.js"></script>
+</body>
+</html>
