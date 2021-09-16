@@ -8107,7 +8107,7 @@ textarea.form-control {
 }
 
 .ps-product .ps-product__price.sale {
-    color: #000
+    color: #0071cc
 }
 
 .ps-product .ps-product__price.sale del {
@@ -16217,7 +16217,7 @@ textarea.form-control {
 }
 
 .navigation--list .navigation__item.active span {
-    color: #42A5F5;
+    color: #fff;
 }
 
 .navigation--list .navigation__content {
